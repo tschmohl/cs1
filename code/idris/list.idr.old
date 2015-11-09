@@ -1,0 +1,14 @@
+module list_nat
+
+import nat
+
+data list_nat = nil | cons nat list_nat
+
+length: list_nat -> nat
+length nil = O
+length (cons n m) = S (length m)
+
+append: list_nat -> list_nat -> list_nat
+append nil m = m
+append n nil = n
+append (cons x n) m = (cons x (append n m))
